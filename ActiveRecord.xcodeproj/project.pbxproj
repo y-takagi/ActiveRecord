@@ -8,6 +8,11 @@
 
 /* Begin PBXBuildFile section */
 		710AFB4E1E11980D006302F5 /* List+Collectable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 710AFB4D1E11980D006302F5 /* List+Collectable.swift */; };
+		710AFB5E1E12B6AC006302F5 /* Person.swift in Sources */ = {isa = PBXBuildFile; fileRef = 710AFB5D1E12B6AC006302F5 /* Person.swift */; };
+		710AFB601E12BA33006302F5 /* Dog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 710AFB5F1E12BA33006302F5 /* Dog.swift */; };
+		710AFB641E12CA89006302F5 /* XCTestCase+Realm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 710AFB631E12CA89006302F5 /* XCTestCase+Realm.swift */; };
+		710AFB671E12D36C006302F5 /* BaseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 710AFB661E12D36C006302F5 /* BaseTests.swift */; };
+		710AFB691E12D8AB006302F5 /* ObjectBaseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 710AFB681E12D8AB006302F5 /* ObjectBaseTests.swift */; };
 		71926B561E0532DE00F070EB /* ActiveRecord.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 71926B4C1E0532DE00F070EB /* ActiveRecord.framework */; };
 		71926B5D1E0532DE00F070EB /* ActiveRecord.h in Headers */ = {isa = PBXBuildFile; fileRef = 71926B4F1E0532DE00F070EB /* ActiveRecord.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		71AEAB471E0FC3A000DD9034 /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 71AEAB451E0FC3A000DD9034 /* Realm.framework */; };
@@ -34,6 +39,11 @@
 
 /* Begin PBXFileReference section */
 		710AFB4D1E11980D006302F5 /* List+Collectable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "List+Collectable.swift"; sourceTree = "<group>"; };
+		710AFB5D1E12B6AC006302F5 /* Person.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Person.swift; sourceTree = "<group>"; };
+		710AFB5F1E12BA33006302F5 /* Dog.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Dog.swift; sourceTree = "<group>"; };
+		710AFB631E12CA89006302F5 /* XCTestCase+Realm.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "XCTestCase+Realm.swift"; sourceTree = "<group>"; };
+		710AFB661E12D36C006302F5 /* BaseTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseTests.swift; sourceTree = "<group>"; };
+		710AFB681E12D8AB006302F5 /* ObjectBaseTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ObjectBaseTests.swift; sourceTree = "<group>"; };
 		71926B4C1E0532DE00F070EB /* ActiveRecord.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = ActiveRecord.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		71926B4F1E0532DE00F070EB /* ActiveRecord.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ActiveRecord.h; sourceTree = "<group>"; };
 		71926B501E0532DE00F070EB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -72,6 +82,41 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		710AFB611E12C031006302F5 /* Support */ = {
+			isa = PBXGroup;
+			children = (
+				710AFB621E12C03B006302F5 /* Models */,
+				710AFB631E12CA89006302F5 /* XCTestCase+Realm.swift */,
+			);
+			path = Support;
+			sourceTree = "<group>";
+		};
+		710AFB621E12C03B006302F5 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				710AFB5F1E12BA33006302F5 /* Dog.swift */,
+				710AFB5D1E12B6AC006302F5 /* Person.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		710AFB651E12D355006302F5 /* ActiveRecord */ = {
+			isa = PBXGroup;
+			children = (
+				710AFB661E12D36C006302F5 /* BaseTests.swift */,
+			);
+			path = ActiveRecord;
+			sourceTree = "<group>";
+		};
+		710AFB6A1E12D8B7006302F5 /* Realm */ = {
+			isa = PBXGroup;
+			children = (
+				710AFB4D1E11980D006302F5 /* List+Collectable.swift */,
+			);
+			name = Realm;
+			path = Realm;
+			sourceTree = "<group>";
+		};
 		71926B421E0532DE00F070EB = {
 			isa = PBXGroup;
 			children = (
@@ -96,7 +141,6 @@
 			children = (
 				71AEAB491E0FC49000DD9034 /* Resources */,
 				71AEAB4A1E0FC49900DD9034 /* Source */,
-				71926B4F1E0532DE00F070EB /* ActiveRecord.h */,
 			);
 			path = ActiveRecord;
 			sourceTree = "<group>";
@@ -106,6 +150,7 @@
 			children = (
 				71AEAB4E1E0FC4E000DD9034 /* Resources */,
 				71AEAB4D1E0FC4D900DD9034 /* Source */,
+				710AFB611E12C031006302F5 /* Support */,
 			);
 			path = ActiveRecordTests;
 			sourceTree = "<group>";
@@ -122,6 +167,7 @@
 		71AEAB491E0FC49000DD9034 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				71926B4F1E0532DE00F070EB /* ActiveRecord.h */,
 				71926B501E0532DE00F070EB /* Info.plist */,
 			);
 			path = Resources;
@@ -131,8 +177,8 @@
 			isa = PBXGroup;
 			children = (
 				71AEAB551E0FD91F00DD9034 /* ActiveRecord */,
+				710AFB6A1E12D8B7006302F5 /* Realm */,
 				71AEAB4B1E0FC4D300DD9034 /* ActiveRecord.swift */,
-				710AFB4D1E11980D006302F5 /* List+Collectable.swift */,
 				71AEAB531E0FC6AF00DD9034 /* ObjectBase.swift */,
 			);
 			path = Source;
@@ -141,7 +187,9 @@
 		71AEAB4D1E0FC4D900DD9034 /* Source */ = {
 			isa = PBXGroup;
 			children = (
+				710AFB651E12D355006302F5 /* ActiveRecord */,
 				71AEAB511E0FC60D00DD9034 /* ActiveRecordTests.swift */,
+				710AFB681E12D8AB006302F5 /* ObjectBaseTests.swift */,
 			);
 			path = Source;
 			sourceTree = "<group>";
@@ -308,6 +356,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				710AFB641E12CA89006302F5 /* XCTestCase+Realm.swift in Sources */,
+				710AFB691E12D8AB006302F5 /* ObjectBaseTests.swift in Sources */,
+				710AFB601E12BA33006302F5 /* Dog.swift in Sources */,
+				710AFB5E1E12B6AC006302F5 /* Person.swift in Sources */,
+				710AFB671E12D36C006302F5 /* BaseTests.swift in Sources */,
 				71AEAB521E0FC60D00DD9034 /* ActiveRecordTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
