@@ -1,9 +1,10 @@
+import Realm
 import RealmSwift
 
 public protocol Base: Validations, Callbacks {
   func save() throws
   func destroy() throws
-  func destroyDependencies() -> [Any]
+  func destroyDependencies() -> [Any?]
 }
 
 extension Base where Self: ActiveRecord {
@@ -22,11 +23,16 @@ extension Base where Self: ActiveRecord {
 
   private func cascadingDestroy() throws {
     try destroyDependencies().forEach { object in
-      if let rel = object as? ActiveRecord {
+      switch object {
+      case let rel as ActiveRecord:
         try rel.cascadingDestroy()
-      } else if let rels = object as? List<ActiveRecord> {
-        try rels.forEach { try $0.cascadingDestroy() }
-      } else {
+      case let rels as Collectable:
+        try rels.all.forEach {
+          if let obj = $0 as? ActiveRecord {
+            try obj.cascadingDestroy()
+          }
+        }
+      default:
         assertionFailure("destroyDependecies() should return [ActiveRecord | List<ActiveRecord>]")
       }
     }

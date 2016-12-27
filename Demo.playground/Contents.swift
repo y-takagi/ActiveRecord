@@ -3,27 +3,52 @@ import RealmSwift
 
 Realm.Configuration.defaultConfiguration.inMemoryIdentifier = "TestDatabase"
 
-class TestModel: ActiveRecord, ObjectBase {
-  typealias ModelType = TestModel
+class Owner: ActiveRecord, ObjectBase {
+  typealias ModelType = Owner
 
   dynamic var name: String = ""
+  dynamic var car: Car?
+  let pets = List<Pet>()
+
+  override func destroyDependencies() -> [Any?] {
+    return [car, pets]
+  }
 }
 
-TestModel.objects.count
+class Car: ActiveRecord, ObjectBase {
+  typealias ModelType = Car
 
-let model = TestModel()
-model.name = "Hello, World"
-try! model.save()
-
-TestModel.objects.count
-
-if let managed = TestModel.objects.first {
-  managed.name
-
-  let unmanaged = TestModel(value: managed)
-  unmanaged.name = "Copy, World"
-  try! unmanaged.save()
+  dynamic var name: String = ""
+  let owner = LinkingObjects(fromType: Owner.self, property: "car").first
 }
 
-TestModel.objects.count
+class Pet: ActiveRecord, ObjectBase {
+  typealias ModelType = Pet
 
+  dynamic var name: String = ""
+  let owner = LinkingObjects(fromType: Owner.self, property: "pets").first
+}
+
+/*
+ * Cascading destroy
+ */
+let pet = Pet()
+pet.name = "Feyris"
+let car = Car()
+car.name = "BMW"
+
+let owner = Owner()
+owner.name = "Tarou"
+owner.car = car
+owner.pets.append(pet)
+try! owner.save()
+
+Owner.objects.count
+Car.objects.count
+Pet.objects.count
+
+try! owner.destroy()
+
+Owner.objects.count
+Car.objects.count
+Pet.objects.count
