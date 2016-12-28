@@ -16,7 +16,7 @@ open class ActiveRecord: Object, Base {
     return ["errors"]
   }
 
-  open func destroyDependencies() -> [Any?] {
+  open func destroyDependencies() -> [Relationable?] {
     return []
   }
 

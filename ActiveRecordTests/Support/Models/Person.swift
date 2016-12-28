@@ -10,7 +10,7 @@ class Person: ActiveRecord, ObjectBase {
   // to-many relations
   let dogs = List<Dog>()
 
-  override func destroyDependencies() -> [Any?] {
+  override func destroyDependencies() -> [Relationable?] {
     return [dogs]
   }
 }

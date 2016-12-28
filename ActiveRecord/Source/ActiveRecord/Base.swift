@@ -1,14 +1,16 @@
 import Realm
 import RealmSwift
 
-public protocol Base: Validations, Callbacks {
+public protocol Base: Validations, Callbacks, Relationable {
   func save() throws
   func destroy() throws
-  func destroyDependencies() -> [Any?]
+  func destroyDependencies() -> [Relationable?]
 }
 
 extension Base where Self: ActiveRecord {
   public func save() throws {
+    guard isValid() else { return }
+
     try type(of: self).realm.write {
       self.updatedAt = Date()
       type(of: self).realm.add(self, update: true)
@@ -21,21 +23,8 @@ extension Base where Self: ActiveRecord {
     }
   }
 
-  private func cascadingDestroy() throws {
-    try destroyDependencies().forEach { object in
-      switch object {
-      case let rel as ActiveRecord:
-        try rel.cascadingDestroy()
-      case let rels as Collectable:
-        try rels.all.forEach {
-          if let obj = $0 as? ActiveRecord {
-            try obj.cascadingDestroy()
-          }
-        }
-      default:
-        assertionFailure("destroyDependecies() should return [ActiveRecord | List<ActiveRecord>]")
-      }
-    }
+  public func cascadingDestroy() throws {
+    try destroyDependencies().forEach { try $0?.cascadingDestroy() }
     type(of: self).realm.delete(self)
   }
 }

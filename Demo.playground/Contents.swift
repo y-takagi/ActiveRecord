@@ -10,7 +10,7 @@ class Person: ActiveRecord, ObjectBase {
   dynamic var car: Car?
   let pets = List<Pet>()
 
-  override func destroyDependencies() -> [Any?] {
+  override func destroyDependencies() -> [Relationable?] {
     return [car, pets]
   }
 }

@@ -1,6 +1,5 @@
 
 public protocol Validations {
-  func isValid() -> Bool
   func runValidateCallbacks()
   func validates_presence_of(_ attribute: String)
   func validates_uniqueness_of(_ attribute: String)
@@ -11,7 +10,7 @@ public protocol Validations {
 extension Validations where Self: ActiveRecord {
   public func isValid() -> Bool {
     errors.removeAll()
-    return runValidations()
+    return runValidations() && validateRelations()
   }
 
   public func validates_presence_of(_ attribute: String) {
@@ -36,5 +35,16 @@ extension Validations where Self: ActiveRecord {
   private func runValidations() -> Bool {
     runValidateCallbacks()
     return errors.isEmpty
+  }
+
+  private func validateRelations() -> Bool {
+    return objectSchema.properties.filter { $0.objectClassName != nil
+      }.map {
+        if let rel = value(forKey: $0.name) as? Relationable {
+          return rel.isValid()
+        } else {
+          return true
+        }
+      }.reduce(true, { $0 && $1 })
   }
 }
