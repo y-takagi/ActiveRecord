@@ -39,7 +39,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		710AFB4D1E11980D006302F5 /* List+Relationable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "List+Relationable.swift"; path = "List+Relationable.swift"; sourceTree = "<group>"; };
+		710AFB4D1E11980D006302F5 /* List+Relationable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "List+Relationable.swift"; sourceTree = "<group>"; };
 		710AFB5D1E12B6AC006302F5 /* Person.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Person.swift; sourceTree = "<group>"; };
 		710AFB5F1E12BA33006302F5 /* Dog.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Dog.swift; sourceTree = "<group>"; };
 		710AFB631E12CA89006302F5 /* XCTestCase+Realm.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "XCTestCase+Realm.swift"; sourceTree = "<group>"; };
@@ -228,7 +228,6 @@
 				71926B481E0532DE00F070EB /* Frameworks */,
 				71926B491E0532DE00F070EB /* Headers */,
 				71926B4A1E0532DE00F070EB /* Resources */,
-				713883A71E116CBC00AC9910 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -313,24 +312,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
-
-/* Begin PBXShellScriptBuildPhase section */
-		713883A71E116CBC00AC9910 /* ShellScript */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"$(SRCROOT)/Carthage/Build/iOS/Realm.framework",
-				"$(SRCROOT)/Carthage/Build/iOS/RealmSwift.framework",
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "/usr/local/bin/carthage copy-frameworks";
-		};
-/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		71926B471E0532DE00F070EB /* Sources */ = {
