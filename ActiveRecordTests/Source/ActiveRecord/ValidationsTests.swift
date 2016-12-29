@@ -12,8 +12,9 @@ class ValidationsTests: XCTestCase {
   }
 
   func testValidatesPresenceOf() {
-    let owner = Person()
-    owner.tel = "080-1122-3344"
+    let owner = PersonFactory.build()
+    owner.name = ""
+    owner.car = nil
 
     XCTAssert(owner.isValid() == false)
     XCTAssert(owner.errors.count == 2)
@@ -24,15 +25,14 @@ class ValidationsTests: XCTestCase {
     XCTAssert(owner.isValid() == false)
     XCTAssert(owner.errors.count == 1)
 
-    owner.car = Car()
+    owner.car = CarFactory.build()
     XCTAssert(owner.isValid() == true)
     XCTAssert(owner.errors.count == 0)
   }
 
   func testValidatesFormatOf() {
-    let owner = Person()
-    owner.name = "Tarou"
-    owner.car = Car()
+    let owner = PersonFactory.build()
+    owner.tel = ""
 
     XCTAssert(owner.isValid() == false)
     XCTAssert(owner.errors.count == 1)

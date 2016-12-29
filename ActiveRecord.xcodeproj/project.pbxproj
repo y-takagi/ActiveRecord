@@ -28,6 +28,10 @@
 		71AEAB611E0FFC9B00DD9034 /* Base.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71AEAB601E0FFC9B00DD9034 /* Base.swift */; };
 		71F610CF1E14E70C00CD0798 /* ValidationsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71F610CE1E14E70C00CD0798 /* ValidationsTests.swift */; };
 		71F610D11E14ECA800CD0798 /* Car.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71F610D01E14ECA800CD0798 /* Car.swift */; };
+		71F610D41E14F13B00CD0798 /* PersonFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71F610D31E14F13B00CD0798 /* PersonFactory.swift */; };
+		71F610D61E14F20100CD0798 /* Factory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71F610D51E14F20100CD0798 /* Factory.swift */; };
+		71F610D81E14F51F00CD0798 /* DogFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71F610D71E14F51F00CD0798 /* DogFactory.swift */; };
+		71F610DA1E14F63900CD0798 /* CarFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71F610D91E14F63900CD0798 /* CarFactory.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -63,6 +67,10 @@
 		71AEAB601E0FFC9B00DD9034 /* Base.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Base.swift; sourceTree = "<group>"; };
 		71F610CE1E14E70C00CD0798 /* ValidationsTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ValidationsTests.swift; sourceTree = "<group>"; };
 		71F610D01E14ECA800CD0798 /* Car.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Car.swift; sourceTree = "<group>"; };
+		71F610D31E14F13B00CD0798 /* PersonFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PersonFactory.swift; sourceTree = "<group>"; };
+		71F610D51E14F20100CD0798 /* Factory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Factory.swift; sourceTree = "<group>"; };
+		71F610D71E14F51F00CD0798 /* DogFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DogFactory.swift; sourceTree = "<group>"; };
+		71F610D91E14F63900CD0798 /* CarFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CarFactory.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -91,6 +99,7 @@
 		710AFB611E12C031006302F5 /* Support */ = {
 			isa = PBXGroup;
 			children = (
+				71F610D21E14F02C00CD0798 /* Factories */,
 				710AFB621E12C03B006302F5 /* Models */,
 				710AFB631E12CA89006302F5 /* XCTestCase+Realm.swift */,
 			);
@@ -210,6 +219,17 @@
 				71AEAB581E0FD9A700DD9034 /* Validations.swift */,
 			);
 			path = ActiveRecord;
+			sourceTree = "<group>";
+		};
+		71F610D21E14F02C00CD0798 /* Factories */ = {
+			isa = PBXGroup;
+			children = (
+				71F610D91E14F63900CD0798 /* CarFactory.swift */,
+				71F610D71E14F51F00CD0798 /* DogFactory.swift */,
+				71F610D51E14F20100CD0798 /* Factory.swift */,
+				71F610D31E14F13B00CD0798 /* PersonFactory.swift */,
+			);
+			path = Factories;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -339,12 +359,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				710AFB641E12CA89006302F5 /* XCTestCase+Realm.swift in Sources */,
+				71F610DA1E14F63900CD0798 /* CarFactory.swift in Sources */,
 				710AFB691E12D8AB006302F5 /* ObjectBaseTests.swift in Sources */,
+				71F610D41E14F13B00CD0798 /* PersonFactory.swift in Sources */,
 				71F610D11E14ECA800CD0798 /* Car.swift in Sources */,
+				71F610D61E14F20100CD0798 /* Factory.swift in Sources */,
 				710AFB601E12BA33006302F5 /* Dog.swift in Sources */,
 				710AFB5E1E12B6AC006302F5 /* Person.swift in Sources */,
 				71F610CF1E14E70C00CD0798 /* ValidationsTests.swift in Sources */,
 				710AFB671E12D36C006302F5 /* BaseTests.swift in Sources */,
+				71F610D81E14F51F00CD0798 /* DogFactory.swift in Sources */,
 				71AEAB521E0FC60D00DD9034 /* ActiveRecordTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

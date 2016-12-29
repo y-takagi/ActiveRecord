@@ -1,4 +1,3 @@
-import Realm
 import RealmSwift
 
 public protocol Base: Validations, Callbacks, Relationable {
