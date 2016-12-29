@@ -26,6 +26,8 @@
 		71AEAB571E0FD93400DD9034 /* Callbacks.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71AEAB561E0FD93400DD9034 /* Callbacks.swift */; };
 		71AEAB591E0FD9A700DD9034 /* Validations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71AEAB581E0FD9A700DD9034 /* Validations.swift */; };
 		71AEAB611E0FFC9B00DD9034 /* Base.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71AEAB601E0FFC9B00DD9034 /* Base.swift */; };
+		71F610CF1E14E70C00CD0798 /* ValidationsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71F610CE1E14E70C00CD0798 /* ValidationsTests.swift */; };
+		71F610D11E14ECA800CD0798 /* Car.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71F610D01E14ECA800CD0798 /* Car.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,6 +61,8 @@
 		71AEAB561E0FD93400DD9034 /* Callbacks.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Callbacks.swift; sourceTree = "<group>"; };
 		71AEAB581E0FD9A700DD9034 /* Validations.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Validations.swift; sourceTree = "<group>"; };
 		71AEAB601E0FFC9B00DD9034 /* Base.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Base.swift; sourceTree = "<group>"; };
+		71F610CE1E14E70C00CD0798 /* ValidationsTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ValidationsTests.swift; sourceTree = "<group>"; };
+		71F610D01E14ECA800CD0798 /* Car.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Car.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -96,6 +100,7 @@
 		710AFB621E12C03B006302F5 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				71F610D01E14ECA800CD0798 /* Car.swift */,
 				710AFB5F1E12BA33006302F5 /* Dog.swift */,
 				710AFB5D1E12B6AC006302F5 /* Person.swift */,
 			);
@@ -106,6 +111,7 @@
 			isa = PBXGroup;
 			children = (
 				710AFB661E12D36C006302F5 /* BaseTests.swift */,
+				71F610CE1E14E70C00CD0798 /* ValidationsTests.swift */,
 			);
 			path = ActiveRecord;
 			sourceTree = "<group>";
@@ -334,8 +340,10 @@
 			files = (
 				710AFB641E12CA89006302F5 /* XCTestCase+Realm.swift in Sources */,
 				710AFB691E12D8AB006302F5 /* ObjectBaseTests.swift in Sources */,
+				71F610D11E14ECA800CD0798 /* Car.swift in Sources */,
 				710AFB601E12BA33006302F5 /* Dog.swift in Sources */,
 				710AFB5E1E12B6AC006302F5 /* Person.swift in Sources */,
+				71F610CF1E14E70C00CD0798 /* ValidationsTests.swift in Sources */,
 				710AFB671E12D36C006302F5 /* BaseTests.swift in Sources */,
 				71AEAB521E0FC60D00DD9034 /* ActiveRecordTests.swift in Sources */,
 			);

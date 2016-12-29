@@ -3,7 +3,6 @@ public protocol Validations {
   func runValidateCallbacks()
   func validates_presence_of(_ attribute: String)
   func validates_uniqueness_of(_ attribute: String)
-  func validates_numericality_of(_ attribute: String)
   func validates_format_of(_ attribute: String, format: String)
 }
 
@@ -14,23 +13,26 @@ extension Validations where Self: ActiveRecord {
   }
 
   public func validates_presence_of(_ attribute: String) {
-    if let value = self.value(forKey: attribute) {
-      switch value {
-      case let value as String:
-        if value.isEmpty {
-          errors[attribute] = "is empty."
-        }
-      default:
-        break
+    switch self.value(forKey: attribute) {
+    case let value as String:
+      if value.isEmpty {
+        errors[attribute] = "is empty."
       }
-    } else {
+    case .none:
       errors[attribute] = "is nil."
+    default:
+      break
     }
   }
 
   public func validates_uniqueness_of(_ attribute: String) {}
-  public func validates_numericality_of(_ attribute: String) {}
-  public func validates_format_of(_ attribute: String, format: String) {}
+
+  public func validates_format_of(_ attribute: String, format: String) {
+    guard let value = self.value(forKey: attribute) as? String else { return }
+    if !NSPredicate(format: "SELF MATCHES %@", format).evaluate(with: value) {
+      errors[attribute] = "Doesn't match to format: \(format)"
+    }
+  }
 
   private func runValidations() -> Bool {
     runValidateCallbacks()
