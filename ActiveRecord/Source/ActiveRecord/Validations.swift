@@ -1,4 +1,3 @@
-
 public protocol Validations {
   func runValidateCallbacks()
   func validates_presence_of(_ attribute: String)
