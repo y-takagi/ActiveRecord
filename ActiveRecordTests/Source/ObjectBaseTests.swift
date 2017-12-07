@@ -18,10 +18,7 @@ class ObjectBaseTests: XCTestCase {
   }
 
   func testFind() {
-    let owner = Person()
-    owner.name = "Tarou"
-    try! owner.save()
-
+    let owner = try! PersonFactory.create()
     XCTAssert(Person.find(owner.id)?.name == "Tarou")
   }
 }

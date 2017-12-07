@@ -13,21 +13,20 @@ class BaseTests: XCTestCase {
 
   func testSave() {
     // Create
-    var owner = Person()
+    var owner = PersonFactory.build()
     try! owner.save()
     XCTAssert(Person.objects.count == 1)
 
     // Update
     owner = Person(value: owner)
-    owner.name = "Tarou"
+    owner.name = "Masaru"
     try! owner.save()
     XCTAssert(Person.objects.count == 1)
-    XCTAssert(Person.objects.first?.name == "Tarou")
+    XCTAssert(Person.objects.first?.name == "Masaru")
   }
 
   func testDestroy() {
-    let owner = Person()
-    try! owner.save()
+    let owner = try! PersonFactory.create()
     XCTAssert(Person.objects.count == 1)
 
     try! owner.destroy()
@@ -35,10 +34,8 @@ class BaseTests: XCTestCase {
   }
 
   func testCascadingDestroy() {
-    let owner = Person()
-    let dog = Dog()
-    owner.dogs.append(dog)
-    try! owner.save()
+    let owner = try! PersonFactory.createAll()
+
     XCTAssert(Person.objects.count == 1)
     XCTAssert(Dog.objects.count == 1)
 

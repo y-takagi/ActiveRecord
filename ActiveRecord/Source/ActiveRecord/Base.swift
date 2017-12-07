@@ -1,13 +1,12 @@
-import Realm
 import RealmSwift
 
-public protocol Base: Validations, Callbacks, Relationable {
+public protocol Base {
   func save() throws
   func destroy() throws
   func destroyDependencies() -> [Relationable?]
 }
 
-extension Base where Self: ActiveRecord {
+extension ActiveRecord: Base {
   public func save() throws {
     guard isValid() else { return }
 
