@@ -1,15 +1,15 @@
 import ActiveRecord
 import RealmSwift
 
-class Person: ActiveRecord, ObjectBase {
-  typealias ModelType = Person
+final class Person: ActiveRecord, ObjectBase {
+  typealias ObjectType = Person
 
-  dynamic var name: String = ""
-  dynamic var age: Int = 0
-  dynamic var tel: String = ""
+  @objc dynamic var name: String = ""
+  @objc dynamic var age: Int = 0
+  @objc dynamic var tel: String = ""
 
   // to-one relations
-  dynamic var car: Car?
+  @objc dynamic var car: Car?
 
   // to-many relations
   let dogs = List<Dog>()

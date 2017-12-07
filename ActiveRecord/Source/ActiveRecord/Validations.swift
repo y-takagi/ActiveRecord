@@ -5,7 +5,7 @@ public protocol Validations {
   func validates_format_of(_ attribute: String, format: String)
 }
 
-extension Validations where Self: ActiveRecord {
+extension ActiveRecord: Validations {
   public func isValid() -> Bool {
     errors.removeAll()
     return runValidations() && validateRelations()

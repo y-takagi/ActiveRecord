@@ -1,12 +1,12 @@
 import RealmSwift
 
-open class ActiveRecord: Object, Base {
+open class ActiveRecord: Object, Relationable {
   public static var realm: Realm = try! Realm()
   public var errors: [String: String] = [:]
 
-  public dynamic var id: String = UUID().uuidString
-  public dynamic var createdAt: Date = Date()
-  public dynamic var updatedAt: Date = Date()
+  @objc public dynamic var id: String = UUID().uuidString
+  @objc public dynamic var createdAt: Date = Date()
+  @objc public dynamic var updatedAt: Date = Date()
 
   override open static func primaryKey() -> String? {
     return "id"

@@ -1,18 +1,22 @@
 import RealmSwift
 
 public protocol ObjectBase {
-  associatedtype ModelType: Object
+  associatedtype ObjectType: Object
 
-  static var objects: Results<ModelType> { get }
-  static func find(_ primaryKey: Any) -> ModelType?
+  static var objects: Results<ObjectType> { get }
+  static func find(_ primaryKey: Any) -> Self?
 }
 
-extension ObjectBase where Self: ActiveRecord {
-  public static var objects: Results<ModelType> {
-    return realm.objects(ModelType.self)
+extension ObjectBase {
+  public static var objects: Results<ObjectType> {
+    return ActiveRecord.realm.objects(ObjectType.self)
   }
 
-  public static func find(_ primaryKey: Any) -> ModelType? {
-    return realm.object(ofType: ModelType.self, forPrimaryKey: primaryKey)
+  public static func find(_ primaryKey: Any) -> Self? {
+    return self.findFor(primaryKey) as? Self
+  }
+
+  private static func findFor<T: Object>(_ primaryKey: Any) -> T? {
+    return ActiveRecord.realm.object(ofType: T.self, forPrimaryKey: primaryKey)
   }
 }
